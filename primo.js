@@ -2,19 +2,24 @@ let btnVerificar = document.getElementById('verificar');
 
 btnVerificar.addEventListener('click',verMensaje)
 
-function esimPar(numero) {
-return numero % 2 !== 0;
-}
+function esprimo(numero) {
+    for (var i = 2; i < numero; i++) {
+        if (numero % i === 0) {
+          return false;
+        }
+      }
+      return numero !== 1;
+    }
 
 function verMensaje(){
 let valor = document.getElementById('numero').value;
 let resultado = document.getElementById('resultado');
 let mensaje = '';
 
-if (esimPar(valor)) {
-mensaje = 'El numero ingresado es impar';
+if (esprimo(valor)) {
+mensaje = 'El numero ingresado es primo';
 } else {
-mensaje = 'El numero ingresado no es impar';
+mensaje = 'El numero ingresado no es primo';
 }
 
 resultado.textContent = mensaje;
